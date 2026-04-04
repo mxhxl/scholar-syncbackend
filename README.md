@@ -47,6 +47,21 @@ pip install aiosqlite
 pytest tests/
 ```
 
+## Database Setup (Quick Start)
+
+A pre-exported database file (`scholarsync.psql`) is included in this repo. To restore it:
+
+```bash
+# 1. Create the database
+createdb -U postgres ScholarSync
+psql -U postgres -d ScholarSync -c "CREATE EXTENSION IF NOT EXISTS vector;"
+
+# 2. Restore the dump
+psql -U postgres -d ScholarSync -f scholarsync.psql
+```
+
+This will set up all tables, indexes, and seed data so you can skip running migrations manually.
+
 ## API Structure
 
 All endpoints under `/v1/`. Swagger UI at `/docs`.

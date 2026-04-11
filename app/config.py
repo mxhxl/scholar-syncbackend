@@ -6,8 +6,8 @@ _ENV_FILE = Path(__file__).resolve().parent.parent / ".env"
 
 
 class Settings(BaseSettings):
-    # Database
-    DATABASE_URL: str = "postgresql+asyncpg://scholarsync:scholarsync123@localhost:5432/scholarsync"
+    # Database — required, must be set in .env (no silent default)
+    DATABASE_URL: str
 
     # Redis
     REDIS_URL: str = "redis://localhost:6379/0"
